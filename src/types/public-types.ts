@@ -13,16 +13,22 @@ export type TaskType = "task" | "milestone" | "project";
 export interface Task {
   id: string;
   type: TaskType;
+  /** 任务名称 */
   name: string;
+  /** 任务图标 */
+  icon?: React.ReactNode;
   start: Date;
   end: Date;
   /**
-   * From 0 to 100
+   * 范围：0-100
    */
-  progress: number;
+  progress?: number;
+  /** 显示进度条 */
+  showProcess?:boolean;
   styles?: {
     backgroundColor?: string;
     backgroundSelectedColor?: string;
+
     progressColor?: string;
     progressSelectedColor?: string;
   };
@@ -31,6 +37,14 @@ export interface Task {
   dependencies?: string[];
   hideChildren?: boolean;
   displayOrder?: number;
+  /** 鼠标放在Bar上的隐藏项 */
+  hideBarHover?: {
+    /** 隐藏拖拽效果 */
+    dragStart?: boolean;
+    dragEnd?: boolean;
+    /** 隐藏进度条拖拽 */
+    dragProgress?: boolean;
+  }
 }
 
 export interface EventOption {
@@ -123,6 +137,7 @@ export interface StylingOption {
     rowWidth: string;
     fontFamily: string;
     fontSize: string;
+    style?: React.CSSProperties;
   }>;
   TaskListTable?: React.FC<{
     rowHeight: number;

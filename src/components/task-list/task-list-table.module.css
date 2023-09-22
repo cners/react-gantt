@@ -1,7 +1,10 @@
+/** 表格列表-样式 */
 .taskListWrapper {
   display: table;
-  border-bottom: #e6e4e4 1px solid;
-  border-left: #e6e4e4 1px solid;
+  /* border-bottom: #E3EBF1 1px solid; */
+
+  border-left: #E3EBF1 1px solid;
+  border-right: #E3EBF1 1px solid;
 }
 
 .taskListTableRow {
@@ -9,8 +12,9 @@
   text-overflow: ellipsis;
 }
 
+/** 表格列表-奇数行背景颜色 */
 .taskListTableRow:nth-of-type(even) {
-  background-color: #f5f5f5;
+  background-color: #FFF;
 }
 
 .taskListCell {
@@ -19,7 +23,9 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  border-bottom: 1px solid #E3EBF1;
 }
+
 .taskListNameWrapper {
   display: flex;
 }
@@ -31,8 +37,25 @@
   user-select: none;
   cursor: pointer;
 }
+
 .taskListEmptyExpander {
   font-size: 0.6rem;
   padding-left: 1rem;
   user-select: none;
+}
+
+
+.taskListName {
+  font-family: PingFangSC-Semibold;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 100%;
+  letter-spacing: 0px;
+
+  /* 文本色/中强调 */
+  color: #011F3B;
+
+  /* 文本-溢出-隐藏 */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

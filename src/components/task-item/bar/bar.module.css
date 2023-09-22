@@ -17,5 +17,6 @@
 
 .barBackground {
   user-select: none;
-  stroke-width: 0;
+  stroke-width: 1;
+  stroke: #E3EBF1;
 }

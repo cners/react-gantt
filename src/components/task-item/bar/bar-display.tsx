@@ -10,6 +10,7 @@ type BarDisplayProps = {
   /* progress start point */
   progressX: number;
   progressWidth: number;
+  showProcess?: boolean;
   barCornerRadius: number;
   styles: {
     backgroundColor: string;
@@ -27,6 +28,7 @@ export const BarDisplay: React.FC<BarDisplayProps> = ({
   isSelected,
   progressX,
   progressWidth,
+  showProcess,
   barCornerRadius,
   styles,
   onMouseDown,
@@ -41,6 +43,7 @@ export const BarDisplay: React.FC<BarDisplayProps> = ({
 
   return (
     <g onMouseDown={onMouseDown}>
+      {/* 时间范围展示的背景条 */}
       <rect
         x={x}
         width={width}
@@ -50,8 +53,10 @@ export const BarDisplay: React.FC<BarDisplayProps> = ({
         rx={barCornerRadius}
         fill={getBarColor()}
         className={style.barBackground}
+        
       />
-      <rect
+      {/* 进度条 */}
+      {showProcess && <rect
         x={progressX}
         width={progressWidth}
         y={y}
@@ -59,7 +64,7 @@ export const BarDisplay: React.FC<BarDisplayProps> = ({
         ry={barCornerRadius}
         rx={barCornerRadius}
         fill={getProcessColor()}
-      />
+      />}
     </g>
   );
 };

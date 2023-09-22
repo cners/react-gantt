@@ -56,8 +56,8 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   todayColor = "rgba(252, 248, 227, 0.5)",
   viewDate,
   TooltipContent = StandardTooltipContent,
-  TaskListHeader = TaskListHeaderDefault,
-  TaskListTable = TaskListTableDefault,
+  TaskListHeader = TaskListHeaderDefault, // 左侧表头
+  TaskListTable = TaskListTableDefault,   // 左侧表格
   onDateChange,
   onProgressChange,
   onDoubleClick,

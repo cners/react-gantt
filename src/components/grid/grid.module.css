@@ -1,15 +1,20 @@
+
+/** 网格-背景颜色 */
 .gridRow {
   fill: #fff;
 }
 
+/** 网格-奇数行颜色 */
 .gridRow:nth-child(even) {
-  fill: #f5f5f5;
+  fill:  #FFF;
 }
 
+/** 网格-下描边颜色 */
 .gridRowLine {
-  stroke: #ebeff2;
+  stroke: #E3EBF1;
 }
 
+/** 网格-左描边颜色 */
 .gridTick {
-  stroke: #e6e4e4;
+  stroke: #E3EBF1;
 }

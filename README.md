@@ -51,6 +51,7 @@ You may handle actions
 ## How to run example
 
 ```
+npm install
 cd ./example
 npm install
 npm start

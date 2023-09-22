@@ -9,6 +9,8 @@ const App = () => {
   const [view, setView] = React.useState<ViewMode>(ViewMode.Day);
   const [tasks, setTasks] = React.useState<Task[]>(initTasks());
   const [isChecked, setIsChecked] = React.useState(true);
+
+  // 右侧单元格宽度，推荐65，如果是年视图，推荐350，月视图推荐300，周视图推荐250
   let columnWidth = 65;
   if (view === ViewMode.Year) {
     columnWidth = 350;
@@ -85,10 +87,11 @@ const App = () => {
         onClick={handleClick}
         onSelect={handleSelect}
         onExpanderClick={handleExpanderClick}
-        listCellWidth={isChecked ? "155px" : ""}
+        // 左侧表头宽度设定为294px
+        listCellWidth={isChecked ? "294px" : ""}
         columnWidth={columnWidth}
       />
-      <h3>Gantt With Limited Height</h3>
+      {/* <h3>Gantt With Limited Height</h3>
       <Gantt
         tasks={tasks}
         viewMode={view}
@@ -102,7 +105,7 @@ const App = () => {
         listCellWidth={isChecked ? "155px" : ""}
         ganttHeight={300}
         columnWidth={columnWidth}
-      />
+      /> */}
     </div>
   );
 };

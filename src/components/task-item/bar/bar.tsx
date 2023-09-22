@@ -29,7 +29,8 @@ export const Bar: React.FC<TaskItemProps> = ({
         height={task.height}
         progressX={task.progressX}
         progressWidth={task.progressWidth}
-        barCornerRadius={task.barCornerRadius}
+        showProcess={task.showProcess}
+        barCornerRadius={6}
         styles={task.styles}
         isSelected={isSelected}
         onMouseDown={e => {

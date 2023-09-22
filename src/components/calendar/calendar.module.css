@@ -1,3 +1,5 @@
+/** 顶部日历样式 */
+
 .calendarBottomText {
   text-anchor: middle;
   fill: #333;
@@ -9,8 +11,9 @@
   pointer-events: none;
 }
 
+/** 日历-顶部-周、月、年的上半部分的分割描边 */
 .calendarTopTick {
-  stroke: #e6e4e4;
+  stroke: #E3EBF1;
 }
 
 .calendarTopText {

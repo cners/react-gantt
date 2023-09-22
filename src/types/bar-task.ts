@@ -9,6 +9,8 @@ export interface BarTask extends Task {
   height: number;
   progressX: number;
   progressWidth: number;
+  /** 显示进度条 */
+  // showProcess?: boolean;
   barCornerRadius: number;
   handleWidth: number;
   barChildren: BarTask[];
