@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Task } from "../../types/public-types";
 import { BarTask } from "../../types/bar-task";
 import styles from "./tooltip.module.css";
+import moment from "moment";
 
 export type TooltipProps = {
   task: BarTask;
@@ -121,9 +122,13 @@ export const StandardTooltipContent: React.FC<{
     fontSize,
     fontFamily,
   };
+
+  const getDate = (date:Date)=>{
+    return moment(date).format('YYYY-MM-DD')
+  }
   return (
     <div className={styles.tooltipDefaultContainer} style={style}>
-      <b style={{ fontSize: fontSize + 6 }}>{`${
+      {/* <b style={{ fontSize: fontSize + 6 }}>{`${
         task.name
       }: ${task.start.getDate()}-${
         task.start.getMonth() + 1
@@ -131,15 +136,19 @@ export const StandardTooltipContent: React.FC<{
         task.end.getMonth() + 1
       }-${task.end.getFullYear()}`}</b>
       {task.end.getTime() - task.start.getTime() !== 0 && (
-        <p className={styles.tooltipDefaultContainerParagraph}>{`Duration: ${~~(
+        <p className={styles.tooltipDefaultContainerParagraph}>{`用时: ${~~(
           (task.end.getTime() - task.start.getTime()) /
           (1000 * 60 * 60 * 24)
         )} day(s)`}</p>
       )}
 
       <p className={styles.tooltipDefaultContainerParagraph}>
-        {!!task.progress && `Progress: ${task.progress} %`}
-      </p>
+        {!!task.progress && `进度: ${task.progress} %`}
+      </p> */}
+      <b style={{ fontSize: fontSize + 6 }}>{task.name}</b>
+      <p>开始日期：{getDate(task.start)}</p>
+      <p>结束日期：{getDate(task.end)}</p>
+      <p>负责人：{task.user}</p>
     </div>
   );
 };

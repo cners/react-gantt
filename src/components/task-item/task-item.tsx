@@ -23,6 +23,8 @@ export type TaskItemProps = {
   ) => any;
 };
 
+const userWidth = 30;//用户头像的宽度
+
 export const TaskItem: React.FC<TaskItemProps> = props => {
   const {
     task,
@@ -60,16 +62,21 @@ export const TaskItem: React.FC<TaskItemProps> = props => {
 
   useEffect(() => {
     if (textRef.current) {
-      setIsTextInside(textRef.current.getBBox().width < task.x2 - task.x1);
+      // 判断文字长度是否超出
+      setIsTextInside(textRef.current.getBBox().width + userWidth < task.x2 - task.x1);
     }
   }, [textRef, task]);
 
   const getX = () => {
     const width = task.x2 - task.x1;
     const hasChild = task.barChildren.length > 0;
+
+    // 任务名称未超出进度条宽度
     if (isTextInside) {
       return task.x1 + width * 0.5;
     }
+
+    // 超出进度条宽度
     if (rtl && textRef.current) {
       return (
         task.x1 -
@@ -109,8 +116,19 @@ export const TaskItem: React.FC<TaskItemProps> = props => {
         onEventStart("select", task);
       }}
     >
+      {/* 任务条渲染 */}
       {taskItem}
-      <text
+
+      {/* 用户头像渲染 */}
+      <svg
+        x={task.x1 + 10}
+        y={task.y + taskHeight * 0.5 - 10}
+        width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="10" cy="10" r="10" fill={task?.styles?.profileBackgroundColor||'#479F99'} />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="12" fill={task?.styles?.profileColor||'#FFF'}>{(task.user||'?')?.[0]}</text>
+      </svg>
+
+      {!task.hideNameOnBar && <text
         x={getX()}
         y={task.y + taskHeight * 0.5}
         className={
@@ -119,9 +137,12 @@ export const TaskItem: React.FC<TaskItemProps> = props => {
             : style.barLabel && style.barLabelOutside
         }
         ref={textRef}
+        style={{
+          fill: task.styles.fontColor
+        }}
       >
         {task.name}
-      </text>
+      </text>}
     </g>
   );
 };

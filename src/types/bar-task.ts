@@ -17,8 +17,13 @@ export interface BarTask extends Task {
   styles: {
     backgroundColor: string;
     backgroundSelectedColor: string;
+    fontColor?:string;
     progressColor: string;
     progressSelectedColor: string;
+
+    /** 头像字体颜色和背景色 */
+    profileColor?:string;
+    profileBackgroundColor?:string;
   };
 }
 

@@ -1,5 +1,5 @@
 .barLabel {
-  fill: #fff;
+ 
   text-anchor: middle;
   font-weight: lighter;
   dominant-baseline: central;
@@ -9,6 +9,13 @@
   -ms-user-select: none;
   user-select: none;
   pointer-events: none;
+
+
+  font-family: PingFangSC-Semibold;
+  font-size: 16px;
+  /* font-weight: 400; */
+  fill: #152E43;
+  letter-spacing: 0px;
 }
 
 .barLabelOutside {

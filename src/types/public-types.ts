@@ -15,8 +15,10 @@ export interface Task {
   type: TaskType;
   /** 任务名称 */
   name: string;
-  /** 任务图标 */
-  icon?: React.ReactNode;
+  /** 左侧渲染任务名称自定义 */
+  renderName?:(name:string)=>React.ReactNode;
+  /** 隐藏进度条上的任务名称 */
+  hideNameOnBar?:boolean;
   start: Date;
   end: Date;
   /**
@@ -28,9 +30,14 @@ export interface Task {
   styles?: {
     backgroundColor?: string;
     backgroundSelectedColor?: string;
+    fontColor?:string;
 
     progressColor?: string;
     progressSelectedColor?: string;
+
+    /** 头像字体颜色和背景色 */
+    profileColor?:string;
+    profileBackgroundColor?:string;
   };
   isDisabled?: boolean;
   project?: string;
@@ -45,6 +52,10 @@ export interface Task {
     /** 隐藏进度条拖拽 */
     dragProgress?: boolean;
   }
+
+  /** 处理人 */
+  user?: string;
+
 }
 
 export interface EventOption {
