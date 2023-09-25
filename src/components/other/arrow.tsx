@@ -28,6 +28,7 @@ export const Arrow: React.FC<ArrowProps> = ({
       arrowIndent
     );
   } else {
+    // 默认逻辑
     [path, trianglePoints] = drownPathAndTriangle(
       taskFrom,
       taskTo,
@@ -37,9 +38,14 @@ export const Arrow: React.FC<ArrowProps> = ({
     );
   }
 
+  /**
+   * path解读：
+   * stroke-dasharray="5,3" stroke-dashoffset="0" 用来控制虚线显示，不使用这里，默认是实现
+   * d是绘制路径，想实现弯曲的线也在这里面定义
+   */
   return (
     <g className="arrow">
-      <path strokeWidth="1.5" d={path} fill="none" />
+      <path strokeWidth="1.5" d={path} fill="none" stroke-dasharray="5,3" stroke-dashoffset="0"/>
       <polygon points={trianglePoints} />
     </g>
   );
@@ -62,6 +68,10 @@ const drownPathAndTriangle = (
       ? arrowIndent
       : taskTo.x1 - taskFrom.x2 - arrowIndent;
 
+  //示例：M10,80 C30,10 50,10 70,80 S90,150 110,80
+  // C 来创建具有弯曲拐角的路径。
+  // M 是移动到起始点的命令，
+  // S 是光滑贝塞尔曲线命令，它用于指定曲线的结束点，而 C 用于指定控制点。
   const path = `M ${taskFrom.x2} ${taskFrom.y + taskHeight / 2} 
   h ${arrowIndent} 
   v ${(indexCompare * rowHeight) / 2} 

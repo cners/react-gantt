@@ -14,7 +14,13 @@ export function initTasks() {
       type: "project",
       hideChildren: false,
       displayOrder: 1,
-      icon: <span style={{color: 'red'}}>🚀</span>
+      icon: <span style={{color: 'red'}}>🚀</span>,
+      styles:{
+        backgroundColor: '#479F99',
+        backgroundSelectedColor: '#479F99',
+      },
+      // 禁止拖拽、修改进度，纯展示
+      isDisabled: true,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
@@ -37,6 +43,7 @@ export function initTasks() {
       type: "task",
       project: "task1",
       displayOrder: 2,
+      isDisabled: true,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 2),
@@ -48,6 +55,7 @@ export function initTasks() {
       type: "task",
       project: "task1",
       displayOrder: 3,
+      isDisabled: true,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 4),
@@ -59,6 +67,7 @@ export function initTasks() {
       type: "task",
       project: "task1",
       displayOrder: 4,
+      isDisabled: true,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 8),
@@ -70,6 +79,7 @@ export function initTasks() {
       type: "task",
       project: "task1",
       displayOrder: 5,
+      isDisabled: true,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 8),
@@ -81,6 +91,7 @@ export function initTasks() {
       dependencies: ["task1-3"],
       project: "task1",
       displayOrder: 6,
+      isDisabled: true,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 15),
@@ -92,6 +103,7 @@ export function initTasks() {
       dependencies: ["task1-5"],
       project: "task1",
       displayOrder: 7,
+      isDisabled: true,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 18),

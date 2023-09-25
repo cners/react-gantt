@@ -45,7 +45,9 @@ export const TaskItem: React.FC<TaskItemProps> = props => {
         setTaskItem(<Milestone {...props} />);
         break;
       case "project":
-        setTaskItem(<Project {...props} />);
+        setTaskItem(<Bar {...props} />);
+        // 项目Bar会以汇总的形式展示，这里我直接改用了普通任务一样的效果展示
+        // setTaskItem(<Project {...props} />);
         break;
       case "smalltask":
         setTaskItem(<BarSmall {...props} />);

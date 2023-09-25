@@ -90,6 +90,7 @@ const App = () => {
         // 左侧表头宽度设定为294px
         listCellWidth={isChecked ? "294px" : ""}
         columnWidth={columnWidth}
+        rtl={false}
       />
       {/* <h3>Gantt With Limited Height</h3>
       <Gantt
