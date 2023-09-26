@@ -65,7 +65,7 @@ export const TaskListTableDefault: React.FC<{
           return (
             <div
               className={styles.taskListTableRow}
-              style={{ height: rowHeight }}
+              style={{ height: rowHeight}}
               key={`${t.id}row`}
             >
               <div
@@ -76,7 +76,8 @@ export const TaskListTableDefault: React.FC<{
                 }}
                 title={t.name}
               >
-                <div className={styles.taskListNameWrapper}>
+                <div className={styles.taskListNameWrapper} 
+                 style={{paddingLeft: ((t.depth||1)-1)* 20}}>
                   <div
                     className={
                       expanderSymbol

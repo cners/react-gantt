@@ -17,46 +17,46 @@ export const ViewSwitcher: React.FC<ViewSwitcherProps> = ({
         className="Button"
         onClick={() => onViewModeChange(ViewMode.Hour)}
       >
-        Hour
+        按小时
       </button>
       <button
         className="Button"
         onClick={() => onViewModeChange(ViewMode.QuarterDay)}
       >
-        Quarter of Day
+        按季度-天
       </button>
       <button
         className="Button"
         onClick={() => onViewModeChange(ViewMode.HalfDay)}
       >
-        Half of Day
+        按半天
       </button>
       <button className="Button" onClick={() => onViewModeChange(ViewMode.Day)}>
-        Day
+        按天
       </button>
       <button
         className="Button"
         onClick={() => onViewModeChange(ViewMode.Week)}
       >
-        Week
+        按周
       </button>
       <button
         className="Button"
         onClick={() => onViewModeChange(ViewMode.Month)}
       >
-        Month
+        按月
       </button>
       <button
         className="Button"
         onClick={() => onViewModeChange(ViewMode.Year)}
       >
-        Year
+        按年
       </button>
       <button
         className="Button"
         onClick={() => onViewModeChange(ViewMode.QuarterYear)}
       >
-        Year
+        按年-季度
       </button>
       <div className="Switch">
         <label className="Switch_Toggle">
@@ -67,7 +67,7 @@ export const ViewSwitcher: React.FC<ViewSwitcherProps> = ({
           />
           <span className="Slider" />
         </label>
-        Show Task List
+        显示任务列
       </div>
     </div>
   );

@@ -1,14 +1,18 @@
 /** 顶部日历样式 */
 
+/** 下部分文字的样式 */
 .calendarBottomText {
   text-anchor: middle;
-  fill: #333;
+  fill: #011F3B;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   pointer-events: none;
+  font-family: PingFangSC-Semibold;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 /** 日历-顶部-周、月、年的上半部分的分割描边 */
@@ -16,19 +20,26 @@
   stroke: #E3EBF1;
 }
 
+/** 上部分文字的样式 */
 .calendarTopText {
   text-anchor: middle;
-  fill: #555;
+  fill: #011F3B;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   pointer-events: none;
+
+  font-family: PingFangSC-Semibold;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .calendarHeader {
-  fill: #ffffff;
-  stroke: #e0e0e0;
+  fill: #F7F8FA;
+  stroke: #E3EBF1;
   stroke-width: 1.4;
+
+
 }

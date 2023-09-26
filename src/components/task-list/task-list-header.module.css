@@ -10,6 +10,9 @@
 .ganttTable_Header {
   display: table-row;
   list-style: none;
+  font-family: PingFangSC-Semibold;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .ganttTable_HeaderSeparator {

@@ -56,6 +56,8 @@ export interface Task {
   /** 处理人 */
   user?: string;
 
+  /** 深度，默认是1 */
+  depth?: number;
 }
 
 export interface EventOption {

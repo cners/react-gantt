@@ -86,7 +86,6 @@ input:checked + .Slider:before {
   transform: translateX(26px);
 }
 
-
 .gantt-task-name-custome{
   width: 220px;
   /** 防止文字溢出 */

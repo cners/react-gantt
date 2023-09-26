@@ -1,16 +1,20 @@
 
 import React from "react";
 import { Task } from "../../dist/types/public-types";
-import { Space } from "antd";
 import { CIconImage_Task } from "./components/CIconImage";
+import { Space } from "antd";
 
-const renderTaskName = (name:string)=> <Space wrap><CIconImage_Task style={{ width: '20px' }} /><div className="gantt-task-name-custome">{name}</div></Space>
+const renderTaskName = (name: string) =>
+  <Space>
+    <CIconImage_Task style={{ width: '20px' }} />
+    <div className="gantt-task-name-custome">{name}</div>
+  </Space>
 
 // 三种任务条颜色
 const taskColor = {
-  todo: {color:'#152E43',backgroundColor: '#B3BCC4',profile:{color:'#FFF',backgroundColor: '#479F99'}},
-  doing: {color:'#FFFFF',backgroundColor: '#374557',profile:{color:'#FFF',backgroundColor: '#479F99'}},
-  done: {color:'#FFF',backgroundColor: '#479F99',profile:{color:'#479F99',backgroundColor: '#FFF'}},
+  todo: { color: '#152E43', backgroundColor: '#B3BCC4', profile: { color: '#FFF', backgroundColor: '#479F99' } },
+  doing: { color: '#FFFFF', backgroundColor: '#374557', profile: { color: '#FFF', backgroundColor: '#479F99' } },
+  done: { color: '#FFF', backgroundColor: '#479F99', profile: { color: '#479F99', backgroundColor: '#FFF' } },
 }
 
 export function initTasks() {
@@ -19,7 +23,7 @@ export function initTasks() {
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
       end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 15),
-      name: "任务task1",
+      name: "task1",
       renderName: renderTaskName,
       id: "task1",
       progress: 100,
@@ -36,7 +40,8 @@ export function initTasks() {
       },
       // 禁止拖拽、修改进度，纯展示
       isDisabled: true,
-      user:'Job',
+      user: 'Job',
+      depth: 1,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
@@ -62,7 +67,8 @@ export function initTasks() {
       project: "task1",
       displayOrder: 2,
       isDisabled: true,
-      user:'李佳思',
+      user: '李佳思',
+      depth: 2,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 2),
@@ -73,11 +79,20 @@ export function initTasks() {
       id: "task1-2",
       progress: 25,
       dependencies: ["task1-1"],
-      type: "task",
+      type: "project",
       project: "task1",
+      hideChildren: false,
       displayOrder: 3,
       isDisabled: true,
-      user:'丈非'
+      user: '丈非',
+      styles: {
+        backgroundColor: taskColor.done.backgroundColor,
+        backgroundSelectedColor: taskColor.done.backgroundColor,
+        fontColor: taskColor.done.color,
+        profileBackgroundColor: taskColor.done.profile.backgroundColor,
+        profileColor: taskColor.done.profile.color,
+      },
+      depth: 2,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 4),
@@ -89,9 +104,10 @@ export function initTasks() {
       progress: 10,
       dependencies: ["task1-1"],
       type: "task",
-      project: "task1",
+      project: "task1-2",
       displayOrder: 4,
       isDisabled: true,
+      depth: 3,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 8),
@@ -101,11 +117,12 @@ export function initTasks() {
       hideNameOnBar: true,
       id: "task1-4",
       progress: 2,
-      dependencies: ["task1-3"],
+      // dependencies: ["task1-3"],
       type: "task",
       project: "task1",
       displayOrder: 5,
       isDisabled: true,
+      depth: 2,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 8),
@@ -120,6 +137,7 @@ export function initTasks() {
       project: "task1",
       displayOrder: 6,
       isDisabled: true,
+      depth: 2,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 15),
@@ -134,6 +152,7 @@ export function initTasks() {
       project: "task1",
       displayOrder: 7,
       isDisabled: true,
+      depth: 2,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 18),
@@ -145,6 +164,7 @@ export function initTasks() {
       progress: 0,
       isDisabled: true,
       type: "task",
+      depth: 1,
     },
   ];
   return tasks;
