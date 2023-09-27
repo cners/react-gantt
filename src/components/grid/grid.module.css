@@ -18,3 +18,8 @@
 .gridTick {
   stroke: #E3EBF1;
 }
+
+.todayLine{
+  stroke: #FC6B57;
+  stroke-width: 2px;
+}

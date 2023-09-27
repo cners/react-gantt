@@ -90,6 +90,7 @@ const App = () => {
         listCellWidth={isChecked ? "294px" : ""}
         columnWidth={columnWidth}
         rtl={false}
+        // todayColor="#FFF"//#FC6B57
       />
       {/* <h3>Gantt With Limited Height</h3>
       <Gantt

@@ -61,6 +61,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
   let tickX = 0;
   const ticks: ReactChild[] = [];
   let today: ReactChild = <rect />;
+  let todayLine: ReactChild = <line />;
   for (let i = 0; i < dates.length; i++) {
     const date = dates[i];
     ticks.push(
@@ -87,15 +88,28 @@ export const GridBody: React.FC<GridBodyProps> = ({
           "millisecond"
         ).getTime() >= now.getTime())
     ) {
-      today = (
-        <rect
-          x={tickX}
-          y={0}
-          width={columnWidth}
-          height={y}
-          fill={todayColor}
+      // today = (
+      //   <rect
+      //     x={tickX}
+      //     y={0}
+      //     width={columnWidth}
+      //     height={y}
+      //     fill={todayColor}
+      //   />
+      // );
+
+      todayLine = <g>
+        <line
+          key={'todaydayday'}
+          x1={tickX + columnWidth / 2}
+          y1={0}
+          x2={tickX + columnWidth / 2}
+          y2={y}
+          className={styles.todayLine}
         />
-      );
+        <circle cx={tickX + columnWidth / 2} cy={y-5} r="6" fill="#FFD3CC" />
+        <circle cx={tickX + columnWidth / 2} cy={y-5} r="3" fill="#FC6B57" />
+      </g>
     }
     // rtl for today
     if (
@@ -121,6 +135,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
       <g className="rows">{gridRows}</g>
       <g className="rowLines">{rowLines}</g>
       <g className="ticks">{ticks}</g>
+      <g className="ticks">{todayLine}</g>
       <g className="today">{today}</g>
     </g>
   );

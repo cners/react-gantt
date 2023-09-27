@@ -89,7 +89,7 @@ export const TaskListTableDefault: React.FC<{
                     {expanderSymbol}
                   </div>
                   <div className={styles.taskListName}>
-                    {t.renderName ? t.renderName(t.name) : t.name}
+                    {t.renderName ? t.renderName(t.id,t.name,t.renderNameExtrasParams) : t.name}
                   </div>
 
                 </div>

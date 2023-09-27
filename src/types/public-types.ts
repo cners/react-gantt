@@ -15,8 +15,9 @@ export interface Task {
   type: TaskType;
   /** 任务名称 */
   name: string;
+  renderNameExtrasParams?:any;
   /** 左侧渲染任务名称自定义 */
-  renderName?:(name:string)=>React.ReactNode;
+  renderName?:(id:string, name:string,extras:any)=>React.ReactNode;
   /** 隐藏进度条上的任务名称 */
   hideNameOnBar?:boolean;
   start: Date;

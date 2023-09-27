@@ -4,7 +4,7 @@ import { Task } from "../../dist/types/public-types";
 import { CIconImage_Task } from "./components/CIconImage";
 import { Space } from "antd";
 
-const renderTaskName = (name: string) =>
+const renderTaskName = (id:string,name: string,extras:any) =>
   <Space>
     <CIconImage_Task style={{ width: '20px' }} />
     <div className="gantt-task-name-custome">{name}</div>
