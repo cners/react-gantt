@@ -1,3 +1,5 @@
+import React from "react";
+
 export enum ViewMode {
   Hour = "Hour",
   QuarterDay = "Quarter Day",
@@ -25,7 +27,7 @@ export interface Task {
   /**
    * 范围：0-100
    */
-  progress?: number;
+  progress: number;
   /** 显示进度条 */
   showProcess?:boolean;
   styles?: {
@@ -59,6 +61,7 @@ export interface Task {
 
   /** 深度，默认是1 */
   depth?: number;
+  hidden?: boolean
 }
 
 export interface EventOption {

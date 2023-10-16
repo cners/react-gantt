@@ -66,6 +66,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   onSelect,
   onExpanderClick,
 }) => {
+
   const wrapperRef = useRef<HTMLDivElement>(null);
   const taskListRef = useRef<HTMLDivElement>(null);
   const [dateSetup, setDateSetup] = useState<DateSetup>(() => {

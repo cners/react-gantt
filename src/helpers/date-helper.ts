@@ -76,6 +76,7 @@ export const ganttDateRange = (
 ) => {
   let newStartDate: Date = tasks[0].start;
   let newEndDate: Date = tasks[0].start;
+
   for (const task of tasks) {
     if (task.start < newStartDate) {
       newStartDate = task.start;
@@ -84,6 +85,7 @@ export const ganttDateRange = (
       newEndDate = task.end;
     }
   }
+
   switch (viewMode) {
     case ViewMode.Year:
       newStartDate = addToDate(newStartDate, -1, "year");
@@ -184,7 +186,6 @@ export const getLocaleMonth = (date: Date, locale: string) => {
   let bottomValue = getCachedDateTimeFormat(locale, {
     month: "long",
   }).format(date);
-  console.log('date',date)
   bottomValue = bottomValue.replace(
     bottomValue[0],
     bottomValue[0].toLocaleUpperCase()
