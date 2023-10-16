@@ -157,6 +157,7 @@ export function initTasks() {
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 18),
       end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 19),
+      hidden: true,
       name: "task2",
       renderName: renderTaskName,
       hideNameOnBar: true,
