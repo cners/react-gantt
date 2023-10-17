@@ -1,6 +1,6 @@
 {
   "name": "csix-gantt",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Interactive Gantt Chart for React with TypeScript.",
   "author": "liuzhuang <liuzhuangs@hotmail.com>",
   "homepage": "https://github.com/cners/react-gantt",
