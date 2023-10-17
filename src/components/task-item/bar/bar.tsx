@@ -12,7 +12,7 @@ export const Bar: React.FC<TaskItemProps> = ({
   isDateChangeable,
   rtl,
   onEventStart,
-  isSelected,
+  isSelected
 }) => {
   const progressPoint = getProgressPoint(
     +!rtl * task.progressWidth + task.progressX,
@@ -36,6 +36,7 @@ export const Bar: React.FC<TaskItemProps> = ({
         onMouseDown={e => {
           isDateChangeable && onEventStart("move", task, e);
         }}
+        extendValues={task.extendValues}
       />
       <g className="handleGroup">
         {isDateChangeable && (

@@ -13,6 +13,11 @@ export enum ViewMode {
 }
 export type TaskType = "task" | "milestone" | "project";
 export interface Task {
+  prefix?: React.ReactNode
+  invalidValues?: Partial<{
+    start: string
+    end: string
+  }>
   id: string;
   type: TaskType;
   /** 任务名称 */

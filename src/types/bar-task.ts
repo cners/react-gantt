@@ -25,6 +25,10 @@ export interface BarTask extends Task {
     profileColor?:string;
     profileBackgroundColor?:string;
   };
+  extendValues?: Partial<{
+    prefix: string
+    suffix: string
+  }>
 }
 
 export type TaskTypeInternal = TaskType | "smalltask";
