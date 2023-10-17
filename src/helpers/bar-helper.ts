@@ -154,11 +154,11 @@ const convertToBar = (
   let x1: number;
   let x2: number;
   if (rtl) {
-    x2 = taskXCoordinateRTL(task.start, dates, columnWidth);
-    x1 = taskXCoordinateRTL(task.end, dates, columnWidth);
+    x2 = taskXCoordinateRTL(task.start, dates, columnWidth)||0;
+    x1 = taskXCoordinateRTL(task.end, dates, columnWidth)||0;
   } else {
-    x1 = taskXCoordinate(task.start, dates, columnWidth);
-    x2 = taskXCoordinate(task.end, dates, columnWidth);
+    x1 = taskXCoordinate(task.start, dates, columnWidth)||0;
+    x2 = taskXCoordinate(task.end, dates, columnWidth)||0;
   }
   let typeInternal: TaskTypeInternal = task.type;
   if (typeInternal === "task" && x2 - x1 < handleWidth * 2) {
@@ -212,8 +212,8 @@ const convertToMilestone = (
   milestoneBackgroundColor: string,
   milestoneBackgroundSelectedColor: string
 ): BarTask => {
-  const x = taskXCoordinate(task.start, dates, columnWidth);
-  const y = taskYCoordinate(index, rowHeight, taskHeight);
+  const x = taskXCoordinate(task.start, dates, columnWidth)||0;
+  const y = taskYCoordinate(index, rowHeight, taskHeight)||0;
 
   const x1 = x - taskHeight * 0.5;
   const x2 = x + taskHeight * 0.5;
@@ -249,11 +249,16 @@ const convertToMilestone = (
 const taskXCoordinate = (xDate: Date, dates: Date[], columnWidth: number) => {
   const index = dates.findIndex(d => d.getTime() >= xDate.getTime()) - 1;
 
-  const remainderMillis = xDate.getTime() - dates[index].getTime();
-  const percentOfInterval =
+  try{
+
+    const remainderMillis = xDate.getTime() - dates[index].getTime();
+    const percentOfInterval =
     remainderMillis / (dates[index + 1].getTime() - dates[index].getTime());
-  const x = index * columnWidth + percentOfInterval * columnWidth;
-  return x;
+    const x = index * columnWidth + percentOfInterval * columnWidth;
+    return x;
+  }catch(e){
+    console.debug("taskXCoordinate", e,xDate,dates[index]);
+  }
 };
 const taskXCoordinateRTL = (
   xDate: Date,
